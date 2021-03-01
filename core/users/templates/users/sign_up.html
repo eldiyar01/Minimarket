@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}<title>SignUp</title>{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Sign up form</h2>
+        <p class="lead"></p>
+    </div>
+    <div class="row justify-content-md-center mb-5">
+        <div class="col-md-6">
+            {% if form.errors %}
+                <div class="alert alert-danger pl-25">
+                    <p class="form-error">{{ form.errors }}</p>
+                </div>
+            {% endif %}
+            <h4 class="mb-3">Billing address</h4>
+            <form class="needs-validation" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form.first_name.label }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form.last_name.label }}
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                {{ form.username.label }}
+                {{ form.username }}
+                <br>
+                {{ form.password1.label }}
+                {{ form.password1 }}
+                <br>
+                {{ form.password2.label }}
+                {{ form.password2 }}
+                <hr class="mb-4">
+                {% csrf_token %}
+                <button class="btn btn-dark btn btn-block" type="submit">Create an account </button>
+            </form>
+            <div class="text-center mt-3 mb-5">
+                Already have an account at MiniMarket?
+                <a href="{% url 'users:sign_in' %}">Sign in </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
