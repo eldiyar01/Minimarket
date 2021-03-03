@@ -2,7 +2,7 @@
 **Description:** 
 A test task(MiniMarket)
 
-**Team members:
+**Team members:**
 A.Eldiyar a.eldiyar09@gmail.com
 
 **Installing:**  
