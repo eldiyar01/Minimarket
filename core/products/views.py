@@ -16,6 +16,13 @@ def category_products(request, pk):
 
 
 def product_detail(request, pk):
+    categories = Category.objects.all()
     product = Product.objects.get(id=pk)
-    return render(request, 'products/product.html', {'product': product})
+    return render(request, 'products/product.html', {'product': product, 'categories': categories})
 
+
+def search(request):
+    categories = Category.objects.all()
+    inp = request.GET.get('input')
+    products = Product.objects.filter(name__icontains=inp)
+    return render(request, 'products/home.html', {'search_products': products, 'categories': categories})
