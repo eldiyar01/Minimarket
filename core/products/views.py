@@ -21,6 +21,12 @@ def product_detail(request, pk):
     return render(request, 'products/product.html', {'product': product, 'categories': categories})
 
 
+def buy(request):
+    pk = request.GET.get('pk')
+    product = Product.objects.get(id=int(pk))
+    return render(request, 'products/buy.html', {'product': product})
+
+
 def search(request):
     categories = Category.objects.all()
     inp = request.GET.get('input')

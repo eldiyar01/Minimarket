@@ -36,9 +36,19 @@
             <strong>{{ product.name }}</strong>
             <hr>
             <p><strong>Price:</strong> ${{ product.price }}</p>
+            {% if product.in_stock %}
+                <p class="text-success">Available</p>
+            {% else %}
+                <p class="text-danger">Unavailable</p>
+            {% endif %}
             <strong>About this item:</strong>
             <br>
             {{ product.description }}
+            <hr>
+            <form action="{% url 'products:buy' %}" method="get">
+                <input hidden value="{{ product.pk }}" name="pk">
+                <button type="submit" class="btn btn-outline-success">Buy</button>
+            </form>
         </div>
     </div>
 </div>

@@ -19,6 +19,11 @@
                         <h5 class="card-title">{{ product.name }}</h5>
                         <h3>${{ product.price }}</h3>
                         <p class="card-text">{{ product.description|slice:':95' }} ...</p>
+                        {% if product.in_stock %}
+                            <p class="text-success">Available</p>
+                        {% else %}
+                            <p class="text-danger">Unavailable</p>
+                        {% endif %}
                         <a class="float-right btn btn-outline-dark" href="{{ product.get_absolute_url }}" role="button">
                             View
                         </a>
@@ -35,6 +40,11 @@
                         <h5 class="card-title">{{ product.name }}</h5>
                         <h3>${{ product.price }}</h3>
                         <p class="card-text">{{ product.description|slice:':95' }} ...</p>
+                        {% if product.in_stock %}
+                            <p class="text-success">Available</p>
+                        {% else %}
+                            <p class="text-danger">Unavailable</p>
+                        {% endif %}
                         <a class="float-right btn btn-outline-dark" href="{{ product.get_absolute_url }}" role="button">
                             View
                         </a>

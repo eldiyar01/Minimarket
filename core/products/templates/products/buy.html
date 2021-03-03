@@ -1,0 +1,45 @@
+{% extends 'products/home.html' %}
+{% block title %}<title>MiniMarket buy{{ product.name }}</title>{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Form of purchase</h2>
+        <p class="lead">Please fill in all the fields</p>
+    </div>
+    <div class="row justify-content-md-center mb-5">
+        <div class="col-md-6">
+            {% if form.errors %}
+                <div class="alert alert-danger pl-25">
+                    <p class="form-error">{{ form.errors }}</p>
+                </div>
+            {% endif %}
+            <h4 class="mb-3">Billing address</h4>
+            <form class="needs-validation">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <p><strong>Name: </strong>{{ user.first_name }}</p>
+                        <p><strong>Last name: </strong>{{ user.last_name }}</p>
+                        <p><strong>Item: </strong>{{ product.name }}</p>
+                        <p><strong>Price: </strong>${{ product.price }}</p>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="mail"> Email (Optional) </label>
+                        <input class="form-control" type="text" id="mail" placeholder="yourmail@example.com">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="address">Address</label>
+                        <input class="form-control" type="text" id="address" placeholder="region, city, street, home1">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="zip"> Zip </label>
+                        <input class="form-control" type="text" id="zip" placeholder="">
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-success btn btn-block" type="submit">Buy</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
