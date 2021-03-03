@@ -2,6 +2,8 @@
 **Description:** 
 A test task(MiniMarket)
 
+**Team members:
+A.Eldiyar a.eldiyar09@gmail.com
 
 **Installing:**  
 1)clone repository
